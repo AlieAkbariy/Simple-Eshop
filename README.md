@@ -1,5 +1,6 @@
 # Simple-Eshop
 Simple Eshop website created with [Django](https://www.djangoproject.com/) and [Bootstrap](https://getbootstrap.com/)
+>note! i downloaded template from [this site](https://toplearn.com/)
 
 
 ## Instalition
