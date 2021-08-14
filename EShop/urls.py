@@ -26,6 +26,7 @@ urlpatterns = [
     path('footer', footer, name='footer'),
     path('', include('eshop_account.urls')),
     path('', include('eshop_products.urls')),
+    path('', include('eshop_contact.urls')),
     path('admin/', admin.site.urls),
 
 ]
