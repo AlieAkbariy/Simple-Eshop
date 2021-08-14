@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from eshop_sliders.models import Slider
+from eshop_settings.models import SiteSettings
 
 
 # header code behind
@@ -11,8 +12,9 @@ def header(request, *args, **kwargs):
 
 # footer code behind
 def footer(request, *args, **kwargs):
+    site_settings = SiteSettings.objects.first()
     context = {
-        'about_us': 'این سایت توسط فریم ورک جنگو ایحاد شده است'
+        'site_settings': site_settings
     }
     return render(request, 'shared/Footer.html', context)
 

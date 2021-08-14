@@ -3,10 +3,12 @@ from django.shortcuts import render
 # Create your views here.
 from eshop_contact.forms import ContactForm
 from eshop_contact.models import ContactUs
+from eshop_settings.models import SiteSettings
 
 
 def contact_page(request):
     contact_form = ContactForm(request.POST or None)
+    site_settings = SiteSettings.objects.first()
 
     if contact_form.is_valid():
         full_name = contact_form.cleaned_data.get('full_name')
@@ -17,6 +19,7 @@ def contact_page(request):
         contact_form = ContactForm()
 
     context = {
-        'contact_form': contact_form
+        'contact_form': contact_form,
+        'site_settings':site_settings
     }
     return render(request, 'contact_us/contact_us_page.html', context)
