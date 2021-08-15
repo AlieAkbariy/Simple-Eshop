@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('eshop_products.urls')),
     path('', include('eshop_contact.urls')),
     path('', include('eshop_settings.urls')),
+    path('', include('eshop_order.urls')),
     path('admin/', admin.site.urls),
 
 ]
