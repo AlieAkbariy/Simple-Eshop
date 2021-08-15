@@ -52,12 +52,16 @@
 										<span>قیمت :{{ product.price }}  تومان</span>
 									</span>
                                     <span>
-										<label>تعداد :</label>
-										<input type="text" value="3" class="search_box">
-										<button type="button" class="btn btn-fefault cart">
-											<i class="fa fa-shopping-cart"></i>
-											افـزودن به سبـد خریـد
-										</button>
+                                        <form method="post" action="/add-order-user">
+                                            {% csrf_token %}
+                                            {{ new_order_form.product_id }}
+                                            <label>تعداد :</label>
+                                            {{ new_order_form.count }}
+                                            <button type="submit" class="btn btn-fefault cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                افـزودن به سبـد خریـد
+                                            </button>
+                                        </form>
 									</span>
                                 </div>
                                 <div>
@@ -269,7 +273,7 @@
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 {% for products_list in related_products %}
-                                    <div class="item {{ forloop.first|yesno:"active,"}}">
+                                    <div class="item {{ forloop.first|yesno:"active," }}">
                                         {% for product in products_list %}
                                             {% include 'products/product_item_component.html' with product=product %}
                                         {% endfor %}

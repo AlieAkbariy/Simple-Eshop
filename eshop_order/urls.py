@@ -1,5 +1,7 @@
 from django.urls import path
 
-urlpatterns = [
+from eshop_order.views import add_order_user
 
+urlpatterns = [
+    path('add-order-user', add_order_user)
 ]
