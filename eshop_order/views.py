@@ -1,6 +1,6 @@
 # Create your views here.
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 from eshop_order.forms import UserNewOrderForm
 from eshop_order.models import Order
@@ -21,6 +21,21 @@ def add_order_user(request):
         if count <= 0:
             count = 1
         product = Product.objects.get_by_id(product_id)
-        order.orderdetail_set.create(product_id=product.id, price=product.price, count=count)
+        order.orderdetail_set.create(product_id=product.id, price=product.price * count, count=count)
 
     return redirect('/products')
+
+
+@login_required(login_url='/login')
+def open_order(request):
+    context = {
+        'order': None,
+        'details': None
+    }
+
+    open_order: Order = Order.objects.filter(owner_id=request.user.id, is_paid=False).first()
+    if open_order is not None:
+        context['order'] = open_order
+        context['details'] = open_order.orderdetail_set.all()
+
+    return render(request, 'order/open_order.html', context)
