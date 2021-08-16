@@ -7,7 +7,7 @@ from eshop_order.models import Order
 from eshop_products.models import Product
 
 
-@login_required
+@login_required(login_url='/login')
 def add_order_user(request):
     new_order_form = UserNewOrderForm(request.POST or None)
 

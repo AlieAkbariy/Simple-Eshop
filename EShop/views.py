@@ -6,7 +6,10 @@ from eshop_settings.models import SiteSettings
 
 # header code behind
 def header(request, *args, **kwargs):
-    context = {}
+    site_settings = SiteSettings.objects.first()
+    context = {
+        'site_settings': site_settings
+    }
     return render(request, 'shared/Header.html', context)
 
 
