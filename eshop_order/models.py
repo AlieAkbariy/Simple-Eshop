@@ -17,6 +17,13 @@ class Order(models.Model):
     def __str__(self):
         return self.owner.get_full_name()
 
+    def get_total_price(self):
+        total_price = 0
+        for order in self.orderdetail_set.all():
+            total_price += order.price
+
+        return total_price
+
 
 class OrderDetail(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='سبد خرید')

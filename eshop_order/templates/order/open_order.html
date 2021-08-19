@@ -69,55 +69,11 @@
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="chose_area">
-                        <ul class="user_option">
-                            <li>
-                                <h3>استفاده از کوپـن خریـد / کارت تخفیـف :</h3>
-                            </li>
-                            <li class="single_field zip-field">
-                                <input type="text" placeholder="کد تخفیف خود را وارد نمایید ...">
-                            </li>
-                            <li>
-                                <a class="btn btn-default update" href="">بررسی و اعمال</a>
-                            </li>
-                        </ul>
-                        <ul class="user_info">
-                            <h3>محاسبـه هزینـه حمل و نقل</h3>
-                            <li class="single_field">
-                                <label>استان :</label>
-                                <select>
-                                    <option>تهـران</option>
-                                    <option>اصفهان</option>
-                                    <option>آذربایجان غربـی</option>
-                                    <option>آذربایجان شرقـی</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field">
-                                <label>شهر / منطقه</label>
-                                <select>
-                                    <option>تهران</option>
-                                    <option>اصفهان</option>
-                                    <option>خـوی</option>
-                                    <option>تبریـز</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>کد پستی :</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default update" href="">محاسبـه هزینـه حمل و نقـل</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
                     <div class="total_area">
                         <ul>
-                            <li>مجمـوع سبـد خریـد <span>2.030.000 ريال</span></li>
-                            <li>مالیـات (9%) <span>182.700 ريال</span></li>
+                            <li>مجمـوع سبـد خریـد <span>{{ total }} تومان</span></li>
                             <li>هزینـه حمل و نقـل <span>رایـگان</span></li>
-                            <li>مجمـوع <span>2.212.700 ريال</span></li>
+                            <li>مجمـوع <span>{{ total }} تومان</span></li>
                         </ul>
                         <a class="btn btn-default update" href="shop.html">به روز رسانی سبـد خریـد </a>
                         <a class="btn btn-default check_out" href="checkout.html">پرداخت</a>

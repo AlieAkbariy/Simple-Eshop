@@ -6,5 +6,5 @@ urlpatterns = [
     path('add-order-user', add_order_user),
     path('open-order', open_order),
     path('request', send_request, name='request'),
-    path('verify', verify, name='verify'),
+    path('verify/<order_id>', verify, name='verify'),
 ]
