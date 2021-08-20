@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 
 from eshop_order.forms import UserNewOrderForm
-from eshop_order.models import Order
+from eshop_order.models import Order, OrderDetail
 from eshop_products.models import Product
 
 
@@ -47,6 +47,16 @@ def open_order(request):
         context['total'] = open_order.get_total_price()
 
     return render(request, 'order/open_order.html', context)
+
+
+def remove_order_detail(request, *args, **kwargs):
+    detail_id = kwargs.get('detail_id')
+    if detail_id is not None:
+        order_detail = OrderDetail.objects.get_queryset().get(id=detail_id, order__owner__order=request.user.id)
+        if order_detail is not None:
+            order_detail.delete()
+            return redirect('/open-order')
+    raise Http404()
 
 
 MERCHANT = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'

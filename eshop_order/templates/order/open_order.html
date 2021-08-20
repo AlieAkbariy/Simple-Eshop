@@ -45,7 +45,7 @@
                                     <p class="cart_total_price">تومان{{ detail.price }} </p>
                                 </td>
                                 <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                    <a class="cart_quantity_delete" href="remove-order/{{ detail.id }}"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -75,8 +75,8 @@
                             <li>هزینـه حمل و نقـل <span>رایـگان</span></li>
                             <li>مجمـوع <span>{{ total }} تومان</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="shop.html">به روز رسانی سبـد خریـد </a>
-                        <a class="btn btn-default check_out" href="checkout.html">پرداخت</a>
+                        <a class="btn btn-default update" href="/products">به روز رسانی سبـد خریـد </a>
+                        <a class="btn btn-default check_out" href="/request">پرداخت</a>
                     </div>
                 </div>
             </div>
