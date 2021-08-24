@@ -2,6 +2,18 @@ from django import forms
 from django.contrib.auth.models import User
 
 
+class EditProfileForm(forms.Form):
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'نام', 'class': 'form-control'}),
+        label='نام'
+    )
+
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'نام خانوادگی', 'class': 'form-control'}),
+        label='نام خانوادگی'
+    )
+
+
 class LoginForm(forms.Form):
     user_name = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'نام کاربری'}),

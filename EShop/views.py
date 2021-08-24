@@ -12,6 +12,9 @@ def my_grouper(n, iterable):
     return ([e for e in t if e is not None] for t in itertools.zip_longest(*args))
 
 
+
+
+
 # header code behind
 def header(request, *args, **kwargs):
     site_settings = SiteSettings.objects.first()
